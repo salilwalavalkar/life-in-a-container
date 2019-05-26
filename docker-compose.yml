@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+  chill-talkies-app:
+    container_name: chill-talkies
+    image: chill-talkies:latest
+    build: ./chill-talkies
+    expose:
+      - 8080
+    ports:
+      - 5050:8080
+    volumes:
+      - javatmp:/tmp
+    logging:
+      driver: json-file
+    networks:
+      - chill-talkies-network
+    command: mvn clean spring-boot:run
+
+volumes:
+  # default dir /var/lib/docker/volumes
+  javatmp:
+
+networks:
+  chill-talkies-network:
+    driver: bridge
