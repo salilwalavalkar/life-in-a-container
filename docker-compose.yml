@@ -4,7 +4,7 @@ services:
   chill-talkies-app:
     container_name: chill-talkies
     image: chill-talkies:latest
-    build: ./chill-talkies
+    build: ../chill-talkies
     expose:
       - 8080
     ports:
